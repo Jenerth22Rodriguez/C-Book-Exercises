@@ -1,14 +1,18 @@
 #include <stdio.h>
 #include <string.h>
-#define Preise "You are awesome"
+#define PRAISE (("220"))
 
-int main(void)
+int global =1;
+int global2 = 0;
+int global3;
+
+int main()
 {
-    char name[40];
+    char name[8] ={};
 
-    printf("What's your name?\n");
-    scanf("%s",name);
-    printf("Hello,%s. %s \n",name, Preise );
+    printf("What's your name?\f");
+    scanf("%u",(int *)name);
+    printf("Hello, = %s. int = %u, %s \n",name,*((int *)name),PRAISE );
 
     return 0;
 }
