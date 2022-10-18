@@ -1,27 +1,36 @@
 #include <stdio.h>
+#include <string.h>
 
-struct {
-    char *model;
-    char *branch;
-    int *years;
-} car1,car2;
+struct Car_type
 
-
-
-int main()
 {
-car1.years = 2012;
-car2.years = 2016;
-car1.branch = "Chevy";
-car2.branch = "Ford";
-car1. model = "Cruze";
-car2.model = "Fusion";
-printf("The branch car 1 is : %s and the manufaturing year %d\n",car1.branch,car1.years);
-printf("The branch car 2 is :%s and the manufaturing year %d\n",car2.branch,car2.years);
-printf("The model car 1 is : %s\n",car1.model);
-printf("The model car 1 is : %s\n",car2.model);
-return 0;
+    char model[30];
+    char branch[30];
+    int years;
+};
+
+struct Car_type2
+{
+    char model[30];
+    char branch[30];
+    int years;
+};
+
+int main(void)
+{
+struct Car_type Chevy;
+struct Car_type2 Ford;
+Chevy.years = 2016;
+Ford.years = 2013;
+strcpy(Chevy.branch, "Chevrolet");
+strcpy(Ford.branch, "Ford");
+strcpy(Chevy.model, "Cruze");
+strcpy(Ford.model, "Fusion");
+
+printf("The branch car 1 is : %s, model %s, with the manufaturing year %d\n", Chevy.branch,Chevy.model, Chevy.years);
+printf("The branch car 2 is : %s, model %s, with the manufaturing year %d\n", Ford.branch, Ford.model, Ford.years);
 }
+
 
 /*
 Working in a struct that is going to print the model, branch and year of the car
