@@ -13,9 +13,9 @@ float area(struct triangle t)
 {
     return 0.5*t.height*t.width;
 }
-struct triangle finish_angle(struct triangle t2){
-    t2.ang3 = 180 - t2.ang1 - t2.ang2;
-    return t2;
+struct triangle finish_angle(struct triangle t){
+    t.ang3 = 180 - t.ang1 - t.ang2;
+    return t;
 }
 
 int main()
@@ -32,9 +32,8 @@ int main()
     t2.width = 8;
     t2.ang1 = 40;
     t2.ang2 = 90;
-    t2.ang3  = 40;
-    struct triangle t3 = finish_angle(t2);
-    printf("Angle 3 is : %f\n",t3.ang2);
-     printf("Angle 3 is : %f\n",t3.ang3);
+    t2 = finish_angle(t2);
+    printf("Angle 3 is : %f\n",t2.ang3);
     return 0;
+
 }
