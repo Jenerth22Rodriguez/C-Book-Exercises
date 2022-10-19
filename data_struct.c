@@ -1,34 +1,32 @@
 #include <stdio.h>
 #include <string.h>
 
-struct Car_type
+typedef struct
 
 {
-    char model[30];
-    char branch[30];
-    int years;
-};
-
-struct Car_type2
-{
-    char model[30];
-    char branch[30];
-    int years;
-};
+     char branch[30];
+     char model[30];
+     int years;
+}Cartype_t;
 
 int main(void)
 {
-struct Car_type Chevy;
-struct Car_type2 Ford;
-Chevy.years = 2016;
-Ford.years = 2013;
-strcpy(Chevy.branch, "Chevrolet");
-strcpy(Ford.branch, "Ford");
-strcpy(Chevy.model, "Cruze");
-strcpy(Ford.model, "Fusion");
 
-printf("The branch car 1 is : %s, model %s, with the manufaturing year %d\n", Chevy.branch,Chevy.model, Chevy.years);
-printf("The branch car 2 is : %s, model %s, with the manufaturing year %d\n", Ford.branch, Ford.model, Ford.years);
+ Cartype_t Chevrolet = {
+    "Chevrolet",
+    "Cruze",
+    2018
+ };
+
+Cartype_t Ford = {
+    "Ford",
+    "Fusion",
+    2014
+};
+printf("The branch of the car 1 is : %s\n",Chevrolet.branch);
+printf("The model of the car 1 is : %s\n",Chevrolet.model);
+printf("The year of the car 1 is : %d\n",Chevrolet.years);
+return 0;
 }
 
 
