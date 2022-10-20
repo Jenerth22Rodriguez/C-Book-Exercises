@@ -4,35 +4,44 @@
 typedef struct
 
 {
-     char branch[30];
-     char model[30];
-     int years;
+    const char *branch;
+    const char *model;
+    int years;
 }Cartype_t;
+
+static void Car_catalog(Cartype_t *car,int carNumber)
+{
+printf("The branch of the car %d is: %s\n",carNumber, car->branch);
+printf("The model of the car is: %s\n",car->model);
+printf("The year of the car is: %d\n",car->years);
+printf("\n");
+}
 
 int main(void)
 {
-
- Cartype_t Chevrolet = {
+ Cartype_t Cars[]= {
+{
     "Chevrolet",
     "Cruze",
     2018
- };
+ },
 
-Cartype_t Ford = {
+ {
     "Ford",
     "Fusion",
     2014
-};
-printf("The branch of the car 1 is : %s\n",Chevrolet.branch);
-printf("The model of the car 1 is : %s\n",Chevrolet.model);
-printf("The year of the car 1 is : %d\n",Chevrolet.years);
+},
+
+{
+    "Jeep",
+    "Patriot",
+    2015
+}
+ };
+
+for (int index = 0; index < sizeof(Cars)/ sizeof(Cartype_t); index++)
+{
+    Car_catalog(&Cars[index],index + 1);
+}
 return 0;
 }
-
-
-/*
-Working in a struct that is going to print the model, branch and year of the car
-I store two type of branch name in my struct for a simple example and then I print them
-in my main function. In this exersice I find out that char and string need to be in quation to
-print them, but the integer and number not need to be in quation to print them.
-*/
