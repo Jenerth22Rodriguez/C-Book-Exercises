@@ -12,10 +12,3 @@ void insert(void)
 {
     printf("You rang,sir?\n");
 }
-
-// in this simple program I covered a mutliple functions.
-
-
-// in line 2, the insert fucntion is going to tell the compiler that I going to used another function.
-
-//  line 11 I start the function definition.
