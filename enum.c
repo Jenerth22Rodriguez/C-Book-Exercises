@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
+ #include <stdbool.h>
 
 char *s_gets(char * st, int n);
 enum spectrum {red, orange, yellow, green, blue, violet};
@@ -14,7 +14,7 @@ int main(void)
     bool color_is_found = false;
 
     puts("Enter a color (empty line to quit):");
-    while(s_gets(choice, LEN) != NULL && choice[0] != '\0')
+    while(s_gets(choice, LEN) != NULL)
     {
         for (color = red; color <= violet; color++)
         {
@@ -24,7 +24,6 @@ int main(void)
                 break;
             }
         }
-
     if (color_is_found)
     switch(color)
     {
@@ -41,25 +40,24 @@ int main(void)
         case violet : puts("Violets are violet.");
         break;
     }
-    else
+    else{
     printf(" I don't know about the color %s.\n",choice);
     color_is_found = false;
     puts("Next color, please (empty line to quit):");
-    }
-    puts("Goodbye!");
 
+    puts("Goodbye!");
+    }
     return 0;
 
 }
-    char * s_gets(char * st, int n)
-    {
+    char * s_gets(char * st, int n);
         char * ret_val;
         char * find;
 
-        ret_val = fgets(st, n, stdin);
+        ret_val = fgets();
         if(ret_val)
         {
-            find = strchr(st, '\n');
+            find = strchr( '\n');
             if(find)
             *find = '\0';
             else
