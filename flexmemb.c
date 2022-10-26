@@ -3,56 +3,52 @@
 
 // chapter 14 exercise 12
 
-struct flex
+typedef struct flex
 {
-    size_t count;
-    double average;
-    double score[];
-};
+    size_t numberOfScores;
+    double averageScore;
+    double scores[];
+}Flex_t;
 
-void showFlex(const struct flex * p);
+static void printStructValue(const struct flex * flexStruct)
+{
+    printf("Scores : ");
+    for(int index = 0; index < flexStruct->numberOfScores; index++)
+    {
+        printf("%g ", flexStruct->scores[index]);
+    }
+    printf("\nAverage: %g\n", flexStruct->averageScore);
+}
+
+static struct flex * assignFlexStructValues(int numberOfScores, double baseValue)
+{
+    double sumOfScores = 0;
+    struct flex * flexStruct1;
+
+    flexStruct1 = malloc(sizeof(struct flex) +(numberOfScores * sizeof(double)));
+    flexStruct1 -> numberOfScores = numberOfScores;
+
+    for (int index = 0; index < flexStruct1->numberOfScores; index++){
+        flexStruct1-> scores[index] = baseValue - index;
+        sumOfScores += flexStruct1 -> scores[index];
+    }
+    flexStruct1 -> averageScore = sumOfScores /flexStruct1->numberOfScores;
+
+    return flexStruct1;
+
+}
 
 int main (void)
 {
-    struct flex * pf1, *pf2;
-    int n = 5;
-    int i;
-    int tot = 0;
+    struct flex * flexStruct1;
+    struct flex  * flexStruct2;
+    flexStruct1 = assignFlexStructValues(5, 20.0);
+    flexStruct2 = assignFlexStructValues(9, 20.0);
+    printStructValue(flexStruct1);
+    printStructValue(flexStruct2);
 
-    pf1 = malloc(sizeof(struct flex) + n * sizeof(double));
-    pf1 -> count = n;
-
-    for (i = 0; i < n ; i++){
-        pf1 -> score[i] = 20.0 - i;
-        tot += pf1 -> score[i];
-    }
-    pf1 -> average = tot /n;
-    showFlex(pf1);
-
-    n = 9;
-    tot = 0;
-    pf2 = malloc(sizeof(struct flex) + n * sizeof(double));
-    pf2 -> count = n;
-
-    for (i = 0; i < n ; i++){
-        pf2 -> score[i] = 20.0 - i;
-        tot += pf2 -> score[i];
-    }
-     pf2 -> average = tot /n;
-
-    showFlex(pf2);
-    free(pf1);
-    free(pf2);
+    free(flexStruct1);
+    free(flexStruct2);
 
     return 0;
-}
-void showFlex(const struct flex * p)
-{
-    int i;
-    printf("Score : ");
-    for(i = 0; i < p->count; i++)
-    {
-        printf("%g ", p->score[i]);
-        printf("\nAverage: %g\n", p->average);
-    }
 }
