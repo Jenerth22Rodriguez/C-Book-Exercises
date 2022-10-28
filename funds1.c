@@ -9,8 +9,7 @@ struct funds
     double savefund;
 };
 
-double sum(double, double);
-
+double sum(const struct funds *);
 int main(void)
 {
     struct funds stan ={
@@ -19,10 +18,10 @@ int main(void)
         "Lucky's Saving and Loan",
         8543.94
     };
-    printf("Stan has a total of $%.2f.\n",sum(stan.bankfund, stan.savefund));
+    printf("Stan has a total of $%.2f.\n",sum(&stan));
     return 0;
 }
-double sum (double x, double y)
+double sum ( const struct funds * money)
 {
-    return(x+y);
+    return(money->bankfund + money->savefund);
 }
