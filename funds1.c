@@ -1,15 +1,18 @@
 #include <stdio.h>
-#define FUNDLEN 50
+#define FUND_NAME_LENGTH (50)
 
 struct funds
 {
-    char bank[FUNDLEN];
+    char bank[FUND_NAME_LENGTH];
     double bankfund;
-    char save[FUNDLEN];
+    char save[FUND_NAME_LENGTH];
     double savefund;
 };
 
-double sum(double, double);
+static double Sum_bankfund_and_savefund(double save, double fund)
+{
+    return(save + fund);
+}
 
 int main(void)
 {
@@ -19,10 +22,6 @@ int main(void)
         "Lucky's Saving and Loan",
         8543.94
     };
-    printf("Stan has a total of $%.2f.\n",sum(stan.bankfund, stan.savefund));
+    printf("Stan has a total of $%.2f.\n",Sum_bankfund_and_savefund(stan.bankfund, stan.savefund));
     return 0;
-}
-double sum (double x, double y)
-{
-    return(x+y);
 }
