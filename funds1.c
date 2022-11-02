@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define FUNDLEN 50
+#define FUNDLEN (50)
 
 struct funds
 {
