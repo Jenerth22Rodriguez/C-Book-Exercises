@@ -1,15 +1,19 @@
 #include <stdio.h>
-#define FUNDLEN (50)
 
 struct funds
 {
-    char bank[FUNDLEN];
+    const char *bank;
     double bankfund;
-    char save[FUNDLEN];
+    const char *save;
     double savefund;
 };
 
-double sum(const struct funds *);
+
+
+static double sum ( const struct funds * money)
+{
+    return(money->bankfund + money->savefund);
+}
 int main(void)
 {
     struct funds stan ={
@@ -20,8 +24,4 @@ int main(void)
     };
     printf("Stan has a total of $%.2f.\n",sum(&stan));
     return 0;
-}
-double sum ( const struct funds * money)
-{
-    return(money->bankfund + money->savefund);
 }
