@@ -2,29 +2,29 @@
 
 int main(void)
 {
-int current_balance;
-int transfer_amount;
-int new_State;
-int *ptr_current_balance;
-int *ptr_transfer_amount;
-int sum;
-int subtract;
-int *new_balance;
-int *new_state;
+int source_Account_Current_Balance;
+int *ptr_source_Account_Current_Balance = &source_Account_Current_Balance;
+
+int destination_Account_Current_Balance;
+int *ptr_destination_Account_Current_Balance = &destination_Account_Current_Balance;
+
+int transfer_Money;
+int *ptr_transfer_Money = &transfer_Money;
 
 printf("Please enter amount in source bank account: ");
-scanf("%d",ptr_current_balance);
+scanf("%d",ptr_source_Account_Current_Balance);
 
 printf("please enter amount in destination bank account: ");
-scanf("%d",ptr_transfer_amount);
+scanf("%d",ptr_destination_Account_Current_Balance);
 
 printf("Please enter amount to transfer: ");
-scanf("%d",&new_State);
+scanf("%d",ptr_transfer_Money);
 
-sum = *ptr_transfer_amount + *new_state;
-subtract = *ptr_transfer_amount - *new_state;
+source_Account_Current_Balance = *ptr_source_Account_Current_Balance  - *ptr_transfer_Money;
+destination_Account_Current_Balance = *ptr_destination_Account_Current_Balance + *ptr_transfer_Money;
 
-printf("The source bank has $%d\n",subtract);
-printf(" The destination bank has $%d\n",sum);
+printf("The source bank has $%d\n",source_Account_Current_Balance);
+printf("The destination bank has $%d\n",destination_Account_Current_Balance);
 return 0;
+
 }
