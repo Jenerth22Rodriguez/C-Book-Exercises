@@ -3,7 +3,7 @@
 struct {
     char *model;
     char *branch;
-    int *years;
+    int years;
 } car1,car2;
 
 
@@ -22,10 +22,3 @@ printf("The model car 1 is : %s\n",car1.model);
 printf("The model car 1 is : %s\n",car2.model);
 return 0;
 }
-
-/*
-Working in a struct that is going to print the model, branch and year of the car
-I store two type of branch name in my struct for a simple example and then I print them
-in my main function. In this exersice I find out that char and string need to be in quation to
-print them, but the integer and number not need to be in quation to print them.
-*/

@@ -12,9 +12,6 @@ struct Student
 int main(void)
 
 {
-   // Blinky_t LED;
-   // Blinky_Init(
-   //    &LED, );
 
    struct Student myClass[2];
    struct Student Kevin;

@@ -16,8 +16,3 @@ int main()
 
     return 0;
 }
-
-/*
-In this exercise I try to get familiar with define and how the define work in a function
-
-*/
