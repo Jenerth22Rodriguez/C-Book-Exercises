@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
- #include <stdbool.h>
+#include <stdbool.h>
 
 char *s_gets(char *st, int n);
 enum spectrum
