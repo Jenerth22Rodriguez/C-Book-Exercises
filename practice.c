@@ -4,7 +4,7 @@ int main()
 {
     printf("I will summon the butler function.\n");
     insert();
-    printf("Yes. Bring me some tea and writetable DVD.\n");
+    printf("Yes. Bring me some tea and writeable DVD.\n");
     return 0;
 }
 

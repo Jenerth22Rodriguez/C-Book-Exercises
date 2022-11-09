@@ -3,7 +3,7 @@
 struct {
     char *model;
     char *branch;
-    int *years;
+    int years;
 } car1,car2;
 
 
