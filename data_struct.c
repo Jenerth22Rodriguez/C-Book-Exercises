@@ -7,9 +7,9 @@ typedef struct
     const char *branch;
     const char *model;
     int years;
-}Cartype_t;
+}Car_t;
 
-static void Car_catalog(Cartype_t *car,int carNumber)
+static void Car_catalog(Car_t *car,int carNumber)
 {
 printf("The branch of the car %d is: %s\n",carNumber, car->branch);
 printf("The model of the car is: %s\n",car->model);
@@ -19,7 +19,7 @@ printf("\n");
 
 int main(void)
 {
- Cartype_t Cars[]= {
+ Car_t Cars[]= {
 {
     "Chevrolet",
     "Cruze",
@@ -39,7 +39,7 @@ int main(void)
 }
  };
 
-for (int index = 0; index < sizeof(Cars)/ sizeof(Cartype_t); index++)
+for (int index = 0; index < sizeof(Cars)/ sizeof(Car_t); index++)
 {
     Car_catalog(&Cars[index],index + 1);
 }
