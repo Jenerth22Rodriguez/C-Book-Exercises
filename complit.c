@@ -8,22 +8,22 @@ enum
     ExpensiveBookScore = 84,
 };
 
-struct book
+struct book_price
 {
     char title[MAX_TITLE_LENGTH];
     char author[MAX_AUTHOR_LENGTH]; // designated Initializer
-    float value;
+    float value_of_book;
 };
 
 int main(void)
 {
-    struct book read =
+    struct book_price read =
     {
         .author = "Joe",
         .title = "made some tittle",
         .value = 3.99
     };
-    struct book readfirst;
+    struct book_price readfirst;
     int score;
 
     printf("Enter test score: ");
@@ -39,13 +39,13 @@ int main(void)
     //         11.25};
     }
     else {
-        readfirst = (struct book){
+        readfirst = (struct book_price){
             "Mr. Bouncy's Nice Hat",
             "Fred Winsome",
             5.99};
     }
     printf("You assigned reading:\n");
-    printf("%s by %s: $%.2f\n",readfirst.title, readfirst.author, readfirst.value);
+    printf("%s by %s: $%.2f\n",readfirst.title, readfirst.author, readfirst.value_of_book);
 
     return 0;
 }
