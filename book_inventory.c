@@ -29,12 +29,12 @@ int main(void)
    return 0;
 }
 
-char *s_gets(char *st, int number_of_book)
+char *s_gets(char *st, int length)
 {
    char *return_book_value;
    char *find_book;
 
-   return_book_value = fgets(st, number_of_book, stdin);
+   return_book_value = fgets(st, length, stdin);
    if(return_book_value)
    {
       find_book = strchr(st, '\n');
