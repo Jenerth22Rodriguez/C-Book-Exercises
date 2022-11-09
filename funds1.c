@@ -1,19 +1,19 @@
 #include <stdio.h>
+#define FUND_NAME_LENGTH (50)
 
 struct funds
 {
-    const char *bank;
+    char bank[FUND_NAME_LENGTH];
     double bankfund;
-    const char *save;
+    char save[FUND_NAME_LENGTH];
     double savefund;
 };
 
-
-
-static double sum ( const struct funds * money)
+static double Sum_bankfund_and_savefund(double save, double fund)
 {
-    return(money->bankfund + money->savefund);
+    return(save + fund);
 }
+
 int main(void)
 {
     struct funds stan ={
@@ -22,6 +22,6 @@ int main(void)
         "Lucky's Saving and Loan",
         8543.94
     };
-    printf("Stan has a total of $%.2f.\n",sum(&stan));
+    printf("Stan has a total of $%.2f.\n",Sum_bankfund_and_savefund(stan.bankfund, stan.savefund));
     return 0;
 }
