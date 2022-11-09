@@ -1,14 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
-#define LENGTHTITTLE (41)
-#define LENGTHAUTHOR (31)
+#define LENGTH_TITLE (41)
+#define LENGTH_AUTHOR (31)
 
 char * s_gets(char *state_book, int number_of_book);
 
 struct book_price{
-    char tittle [LENGTHTITTLE];
-    char author [LENGTHAUTHOR];
+    char tittle [LENGTH_TITLE];
+    char author [LENGTH_AUTHOR];
     float value_of_book;
 };
 
@@ -16,9 +16,9 @@ int main(void)
 {
     struct book_price book;
     printf("Please enter the book tittle.\n");
-    s_gets(book.tittle, LENGTHTITTLE);
+    s_gets(book.tittle, LENGTH_TITLE);
     printf("Now enter the author\n");
-    s_gets(book.author, LENGTHAUTHOR);
+    s_gets(book.author, LENGTH_AUTHOR);
     printf("Now enter the value.\n");
     scanf("%f",&book.value_of_book);
     printf("%s by %s: $%.2f\n",book.tittle, book.author, book.value_of_book);
