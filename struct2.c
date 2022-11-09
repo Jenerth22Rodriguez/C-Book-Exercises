@@ -23,7 +23,7 @@ int main(void)
    strcpy(Kevin.id, " 012323");
 
    printf("Age: %d\n", Kevin.age);
-   printf("Grades:\n ");
+   printf("Grades: ");
    printf("Name: %s\n", Kevin.name);
    printf("ID:%s\n", Kevin.id);
 
@@ -32,5 +32,7 @@ int main(void)
       printf("%d ", Kevin.grades[i]);
    }
    printf("\n");
+   printf("What is the size of kevin %lu\n", sizeof(Kevin));
+   printf("What is the size of my Class %lu\n", sizeof(myClass));
    return 0;
 };
