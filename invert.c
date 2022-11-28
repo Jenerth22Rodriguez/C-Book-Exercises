@@ -1,26 +1,26 @@
 #include <stdio.h>
 #include <limits.h>
 
-char *itobs(int, char *);
-void show_bstr(const char *);
-int invert_end(int num, int bits);
+char *negative_number(int, char *);
+void breakup_bits_into_groups(const char *);
+int invert_last_number(int number, int bits);
 
 int main(void)
 {
-   char bin_str[CHAR_BIT * sizeof(int) + 1];
+   char bin_str_array[CHAR_BIT * sizeof(int) + 1];
    int number;
    puts("Enter integers and see them in binary.");
    puts("Non-numeric input terminates program.");
 
    while(scanf("%d", &number) == 1)
    {
-      itobs(number, bin_str);
+      negative_number(number, bin_str_array);
       printf("%d is \n", number);
-      show_bstr(bin_str);
+      breakup_bits_into_groups(bin_str_array);
       putchar('\n');
-      number = invert_end(number, 4);
+      number = invert_last_number(number, 4);
       printf("Inverting the last 4 bits gives\n");
-      show_bstr(itobs(number, bin_str));
+      breakup_bits_into_groups(negative_number(number, bin_str_array));
       putchar('\n');
    }
    puts("Bye!");
@@ -28,35 +28,35 @@ int main(void)
    return 0;
 }
 
-char *itobs(int n, char *ps)
+char *negative_number(int negative_number, char *ps)
 {
-   int i;
+   int index;
    const static int size = CHAR_BIT * sizeof(int);
-   for(i = size - 1; i >= 0; i--, n >>= 1)
-      ps[i] = (01 & n) + '0';
+   for(index = size - 1; index >= 0; index--, negative_number >>= 1)
+      ps[index] = (01 & negative_number) + '0';
    ps[size] = '\0';
    return ps;
 }
 
-void show_bstr(const char *str)
+void breakup_bits_into_groups(const char *string)
 {
-   int i = 0;
-   while(str[i])
+   int index = 0;
+   while(string[index])
    {
-      putchar(str[i]);
-      if(++i % 4 == 0 && str[i])
+      putchar(string[index]);
+      if(++index % 4 == 0 && string[index])
          putchar(' ');
    }
 }
 
-int invert_end(int num, int bits)
+int invert_last_number(int last_number, int bits)
 {
    int mask = 0;
-   int bitval = 1;
+   int bit_value = 1;
    while(bits-- > 0)
    {
-      mask |= bitval;
-      bitval <<= 1;
+      mask |= bit_value;
+      bit_value <<= 1;
    }
-   return num ^ mask;
+   return last_number ^ mask;
 }
