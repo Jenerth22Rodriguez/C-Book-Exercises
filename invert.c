@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <limits.h>
 
-char *negative_number(int, char *);
-void breakup_bits_into_groups(const char *);
-int invert_last_number(int number, int bits);
+static char *convert_number_to_binary(int, char *);
+static void breakup_bits_into_groups(const char *);
+static int invert_number(int number, int bits);
 
 int main(void)
 {
@@ -14,13 +14,13 @@ int main(void)
 
    while(scanf("%d", &number) == 1)
    {
-      negative_number(number, bin_str_array);
+      convert_number_to_binary(number, bin_str_array);
       printf("%d is \n", number);
       breakup_bits_into_groups(bin_str_array);
       putchar('\n');
-      number = invert_last_number(number, 4);
+      number = invert_number(number, 4);
       printf("Inverting the last 4 bits gives\n");
-      breakup_bits_into_groups(negative_number(number, bin_str_array));
+      breakup_bits_into_groups(convert_number_to_binary(number, bin_str_array));
       putchar('\n');
    }
    puts("Bye!");
@@ -28,7 +28,7 @@ int main(void)
    return 0;
 }
 
-char *negative_number(int negative_number, char *ps)
+char *convert_number_to_binary(int negative_number, char *ps)
 {
    int index;
    const static int size = CHAR_BIT * sizeof(int);
@@ -49,7 +49,7 @@ void breakup_bits_into_groups(const char *string)
    }
 }
 
-int invert_last_number(int last_number, int bits)
+int invert_number(int number, int bits)
 {
    int mask = 0;
    int bit_value = 1;
@@ -58,5 +58,5 @@ int invert_last_number(int last_number, int bits)
       mask |= bit_value;
       bit_value <<= 1;
    }
-   return last_number ^ mask;
+   return number ^ mask;
 }
