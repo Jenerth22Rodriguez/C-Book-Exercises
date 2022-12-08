@@ -7,9 +7,9 @@ int main()
 
    int sizeOfArray = sizeof(list);
 
-   int size = sizeof(list[0]);
+   int elementSize = sizeof(list[0]);
 
-   int lengthOfArray = sizeOfArray / size;
+   int lengthOfArray = sizeOfArray / elementSize;
 
    int evenNumber = 0;
 
