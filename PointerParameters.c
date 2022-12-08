@@ -1,24 +1,21 @@
 #include <stdio.h>
-#define Size 10
 
-int sum(int *start, int *end)
+static int sum(int *start, int *end)
 {
-   int initialization = 0;
+   int Total = 0;
    while(start < end)
    {
-      initialization += *start;
+      Total += *start;
+      start++;
    }
-   return initialization;
+   return Total;
 }
 
 int main(void)
 {
-
-int Array[Size]= {20,10,5,39,4,16,19,26,31,20};
-long size;
-
-size = sum(Array, Array + Size);
-
-printf("The total size of my array is %ld.\n",size);
-    return 0;
+   int arrayList[] = { 20, 10, 5, 39, 4, 16, 19, 26, 31, 20 };
+   int totalResult = 0;
+   totalResult = sum(arrayList, arrayList + sizeof(arrayList) / sizeof(int));
+   printf("The total sum of my array is %d.\n", totalResult);
+   return 0;
 }
