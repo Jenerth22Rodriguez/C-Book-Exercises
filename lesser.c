@@ -4,7 +4,9 @@ static int lesser(int firstNumber, int secondNumber)
 {
    int evilNumber;
    if(firstNumber < secondNumber)
+   {
       evilNumber = firstNumber;
+   }
    else
       (evilNumber = secondNumber);
    return evilNumber;
