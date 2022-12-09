@@ -1,54 +1,52 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// chapter 14 exercise 12
-
 typedef struct flex
 {
-    size_t numberOfScores;
-    double averageScore;
-    double scores[];
-}Flex_t;
+   size_t numberOfScores;
+   double averageScore;
+   double scores[];
+} Flex_t;
 
-static void printStructValue(const struct flex * flexStruct)
+static void printStructValue(const struct flex *flexStruct)
 {
-    printf("Scores : ");
-    for(int index = 0; index < flexStruct->numberOfScores; index++)
-    {
-        printf("%g ", flexStruct->scores[index]);
-    }
-    printf("\nAverage: %g\n", flexStruct->averageScore);
+   printf("Scores : ");
+   for(int index = 0; index < flexStruct->numberOfScores; index++)
+   {
+      printf("%g ", flexStruct->scores[index]);
+   }
+   printf("\nAverage Score: %g\n", flexStruct->averageScore);
 }
 
-static struct flex * assignFlexStructValues(int numberOfScores, double baseValue)
+static struct flex *assignFlexStructValues(int numberOfScores, double baseValue)
 {
-    double sumOfScores = 0;
-    struct flex * flexStruct1;
+   double sumOfScores = 0;
+   struct flex *flexStruct;
 
-    flexStruct1 = malloc(sizeof(struct flex) +(numberOfScores * sizeof(double)));
-    flexStruct1 -> numberOfScores = numberOfScores;
+   flexStruct = malloc(sizeof(struct flex) + (numberOfScores * sizeof(double)));
+   flexStruct->numberOfScores = numberOfScores;
 
-    for (int index = 0; index < flexStruct1->numberOfScores; index++){
-        flexStruct1-> scores[index] = baseValue - index;
-        sumOfScores += flexStruct1 -> scores[index];
-    }
-    flexStruct1 -> averageScore = sumOfScores /flexStruct1->numberOfScores;
+   for(int index = 0; index < flexStruct->numberOfScores; index++)
+   {
+      flexStruct->scores[index] = baseValue - index;
+      sumOfScores += flexStruct->scores[index];
+   }
+   flexStruct->averageScore = sumOfScores / flexStruct->numberOfScores;
 
-    return flexStruct1;
-
+   return flexStruct;
+   free(flexStruct);
 }
 
-int main (void)
+int main(void)
 {
-    struct flex * flexStruct1;
-    struct flex  * flexStruct2;
-    flexStruct1 = assignFlexStructValues(5, 20.0);
-    flexStruct2 = assignFlexStructValues(9, 20.0);
-    printStructValue(flexStruct1);
-    printStructValue(flexStruct2);
+   struct flex *flexStruct;
+   struct flex *secondFlexStruct;
+   flexStruct = assignFlexStructValues(5, 20.0);
+   flexStruct = assignFlexStructValues(9, 20.0);
+   printStructValue(flexStruct);
+   printStructValue(flexStruct);
 
-    free(flexStruct1);
-    free(flexStruct2);
+   free(flexStruct);
 
-    return 0;
+   return 0;
 }
