@@ -1,9 +1,6 @@
 #include <stdio.h>
 
-enum
-{
-   SizeOfArray = 5,
-};
+#define ARRAY_SIZE(_array) (sizeof(_array) / sizeof(_array[0]))
 
 static void ShowArray(const double array[], int sizeOfArray)
 {
@@ -25,11 +22,11 @@ static void MultiplyElementsOfArrayByFactor(double array[], int sizeOfArray, dou
 int main(void)
 
 {
-   double array[SizeOfArray] = { 20.0, 17.66, 8.2, 15.3, 22.22 };
+   double array[] = { 20.0, 17.66, 8.2, 15.3, 22.22 };
    printf("The original dip array:\n");
-   ShowArray(array, SizeOfArray);
-   MultiplyElementsOfArrayByFactor(array, SizeOfArray, 2.5);
+   ShowArray(array, ARRAY_SIZE(array));
+   MultiplyElementsOfArrayByFactor(array, ARRAY_SIZE(array), 3.5);
    printf("The dip array after calling mult_array():\n");
-   ShowArray(array, SizeOfArray);
+   ShowArray(array, ARRAY_SIZE(array));
    return 0;
 }
