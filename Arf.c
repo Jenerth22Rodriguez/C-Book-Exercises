@@ -20,7 +20,6 @@ static void MultiplyElementsOfArrayByFactor(double array[], int sizeOfArray, dou
 }
 
 int main(void)
-
 {
    double array[] = { 20.0, 17.66, 8.2, 15.3, 22.22 };
    printf("The original dip array:\n");
