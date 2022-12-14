@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
-static void PlaceCharacter(char *string, unsigned int SizeOfcharacter)
+static void placeCharacter(char *string, unsigned int sizeOfcharacter)
 {
-   if(strlen(string) > SizeOfcharacter)
+   if(strlen(string) > sizeOfcharacter)
    {
-      string[SizeOfcharacter] = '\0';
+      string[sizeOfcharacter] = '\0';
    }
 }
 
@@ -15,7 +15,7 @@ int main(void)
       "Things should be as simple as possible,"
       "but not simpler.";
    puts(array);
-   PlaceCharacter(array, 38);
+   placeCharacter(array, 38);
    puts(array);
    puts("Let's look at some more of the string.");
    puts(array + 39);
