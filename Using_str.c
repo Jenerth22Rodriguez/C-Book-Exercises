@@ -30,7 +30,7 @@ int main(void)
    char flower[80];
    char AddString[] = "s smell like old shoes.";
    puts("what is your favorite flower?");
-   if(s_gets(flower, 80))
+   if (s_gets(flower, sizeof(flower)))
    {
       strcat(flower, AddString);
       puts(flower);
